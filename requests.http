@@ -1,0 +1,135 @@
+# примеры API-запросов
+
+@baseUrl = http://127.0.0.1:5000
+@token = bc066112-486a-4518-8014-0ee33150aeb5
+
+# создание пользователя
+POST {{baseUrl}}/user
+Content-Type: application/json
+
+{
+  "name": "defg",
+  "password": "1D2345qwerty"
+}
+
+###
+
+# логин пользователя
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "name": "defg",
+  "password": "1D2345qwerty"
+}
+
+###
+
+# Просмотр пользователя
+
+GET {{baseUrl}}/user
+Authorization: {{token}}
+Content-Type: application/json
+
+###
+
+# Редактирование пользователя
+PATCH {{baseUrl}}/user
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "name": "123@mail.ru"
+}
+
+###
+
+# Удаление пользователя
+DELETE  {{baseUrl}}/user
+Authorization: {{token}}
+Content-Type: application/json
+
+###
+
+# создание объявления
+POST {{baseUrl}}/advertisement
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "header": "abc",
+  "description": "description for abc"
+}
+
+###
+
+# Просмотр объявления
+
+GET {{baseUrl}}/advertisement/3
+Authorization: {{token}}
+Content-Type: application/json
+
+###
+
+# Редактирование объявления
+PATCH {{baseUrl}}/advertisement/3
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "description": "new description for abc"
+}
+
+###
+
+# Удаление объявления
+DELETE  {{baseUrl}}/advertisement/3
+Authorization: {{token}}
+Content-Type: application/json
+
+###
+
+
+
+
+
+
+
+
+
+
+# создание датчика
+POST {{baseUrl}}/sensors/
+Content-Type: application/json
+
+{
+  "name": "ESP33",
+  "description": "Датчик в ванной"
+}
+
+###
+
+# обновление датчика
+PATCH {{baseUrl}}/sensors/2/
+Content-Type: application/json
+
+{
+  "description": "Перенес датчик на холодильник"
+}
+
+###
+
+# добавление измерения
+POST {{baseUrl}}/measurements/
+Content-Type: application/json
+
+{
+  "sensor": 2,
+  "temperature": 22.3
+}
+
+###
+
+# получение информации по датчику
+GET {{baseUrl}}/sensors/1/
+Content-Type: application/json

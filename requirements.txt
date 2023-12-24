@@ -1,0 +1,6 @@
+Flask
+Flask-Bcrypt
+gunicorn
+psycopg2-binary
+pydantic
+SQLAlchemy
